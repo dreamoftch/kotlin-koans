@@ -21,6 +21,11 @@ fun todoTask4(collection: Collection<Int>): Nothing = TODO(
     documentation = doc4(),
     references = { JavaCode4().task4(collection) })
 
+//https://kotlinlang.org/docs/reference/lambdas.html
+//It's very common that a lambda expression has only one parameter.
+// If Kotlin can figure the signature out itself,
+// it allows us not to declare the only parameter,
+// and will implicitly declare it for us under the name it:
 fun task4(collection: Collection<Int>): Boolean =
         collection.any { it % 42 == 0 }
 
