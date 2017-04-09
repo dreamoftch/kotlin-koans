@@ -14,8 +14,13 @@ fun whatFoldDoes(): Int {
 
 fun Shop.getSetOfProductsOrderedByEveryCustomer(): Set<Product> {
     // Return the set of products ordered by every customer
-    return customers.fold(allOrderedProducts, {
-        orderedByAll, customer ->
-        todoCollectionTask()
-    })
+//    return customers.fold(allOrderedProducts, {
+//        orderedByAll, customer ->
+//        //类似Java集合的retainAll方法
+//        orderedByAll.intersect(customer.orderedProducts)
+//    })
+    var set = allOrderedProducts
+    println(set)
+    customers.forEach { set = set.intersect(it.orderedProducts) }
+    return set
 }

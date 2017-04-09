@@ -12,5 +12,7 @@ fun example8() {
 
 fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> {
     // Return customers who have more undelivered orders than delivered
-    todoCollectionTask()
+    //根据customer进行partition(isDelivered为false的order个数>isDelivered为true的个数)
+    return this.customers.partition { it.orders.count { !it.isDelivered } > it.orders.count { it.isDelivered } }
+            .first.toSet()
 }
