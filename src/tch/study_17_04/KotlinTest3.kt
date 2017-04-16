@@ -5,11 +5,24 @@ package tch.study_17_04
  */
 class KotlinTest3 {
 
+    fun <T> varargsTest(vararg args: T) {
+        for (ele in args) {
+            println(ele)
+        }
+    }
+
 }
 fun main(args: Array<String>) {
     println(User(name = "tch", age = 26))
     var b: String? = null
-    var a = b!!.length
+    val list = listOf("1", "2", "3")
+    varargsTest(*list.toTypedArray())
+}
+
+fun <T> varargsTest(vararg args: T) {
+    for (ele in args) {
+        println(ele)
+    }
 }
 
 fun month() {

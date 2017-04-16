@@ -1,7 +1,6 @@
 package v_builders
 
 import util.TODO
-import java.util.*
 
 fun buildStringExample(): String {
     fun buildString(build: StringBuilder.() -> Unit): String {
@@ -27,13 +26,19 @@ fun todoTask37(): Nothing = TODO(
         building it and returning it as a result.
     """
 )
+//build: MutableMap<K, V>.() -> Unit 跟前面的测试中val isOdd: Int.() -> Boolean { this % 2 == 0} 一样，相当于
+//定义了一个匿名扩展函数，并赋给了一个变量
+fun <K, V> buildMap(build: MutableMap<K, V>.() -> Unit): MutableMap<K, V> {
+    val map = mutableMapOf<K, V>()
+    map.build()
+    return map
+}
 
 fun task37(): Map<Int, String> {
-    todoTask37()
-//    return buildMap {
-//        put(0, "0")
-//        for (i in 1..10) {
-//            put(i, "$i")
-//        }
-//    }
+    return buildMap {
+        put(0, "0")
+        for (i in 1..10) {
+            put(i, "$i")
+        }
+    }
 }
